@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?><!-- The root element of the Android Manifest file.
+It must contain an <application> element and specify xmlns:android and package attributes. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Declares that the app requires the android.permission.ACCESS_FINE_LOCATION permission, which allows an app to access precise location. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Declares that the app requires the android.permission.ACCESS_COARSE_LOCATION permission, which allows an app to access approximate location. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- The declaration of the application.
+    This element contains subelements that declare each of the application's components. -->
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyGeolocation"
+        tools:targetApi="31">
+        <!-- Declares a service (a Service subclass) as one of the application's components. -->
+        <service android:name=".LocationService" />
+        <!-- Declares an activity (an Activity subclass) as one of the application's components. -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <!-- An intent filter declares the capabilities of its parent component. -->
+            <intent-filter>
+                <!-- Adds an <action> element to an intent filter. -->
+                <action android:name="android.intent.action.MAIN" />
+                <!-- Adds a <category> element to an intent filter. -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
